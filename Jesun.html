@@ -1,0 +1,18 @@
+<html>
+  <head>
+  <script>
+    var xmlhttp = newXMLHttpRequest();
+
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.stage == 200) {
+   var mydata = JSON.parse(this.responseText);
+   window.alert(mydata.name);
+  }
+};
+xmlhttp.open("GET","sample.json",true);
+xmlhttp.send();
+  </script>
+  </head>
+  <body>
+  </body>
+</html>
