@@ -1,18 +1,17 @@
 <html>
-  <head>
+  <body>
+    <h1 id="lol"></h1>
   <script>
-    var xmlhttp = newXMLHttpRequest();
+    var xmlhttp = new XMLHttpRequest();
 
 xmlhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.stage == 200) {
    var mydata = JSON.parse(this.responseText);
-   window.alert(mydata.name);
+   document.getElementById('lol').innerHTML = mydata.Name + " is " + mydata.Age + " btw.";
   }
 };
 xmlhttp.open("GET","sample.json",true);
 xmlhttp.send();
   </script>
-  </head>
-  <body>
   </body>
 </html>
