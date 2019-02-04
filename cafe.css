@@ -1,12 +1,27 @@
+#title {
+  width: 90vw;
+  height: 20vh;
+  text-align:justify;
+  text-align:center;
+  border-width: 1vw;
+}
 .div {
   width: 20vw;
   height: 20vh;
   text-align: justify;
   text-align: center;
+  border-width: 1vw;
 }
-
+#log {
+  width: 90vw;
+  height: 20vh;
+  text-align: justify;
+  text-align: center;
+  overflow: scroll;
+  border-width: 1vw;
+}  
 body {
   padding: 0;
   margin: 0;
-  background-image: url("");
+  background-image: url("http://www.rougemontinteriors.com/content/6-coffee-shop/coffee_z_web.jpg");
 }
