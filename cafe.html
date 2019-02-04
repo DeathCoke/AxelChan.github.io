@@ -1,0 +1,45 @@
+<html>
+<head>
+  <link rel="stylesheet" href="cafe.css" async>
+</head>
+<body onload="load()">
+  <div id="title">
+    <h1></h1>
+  </div>
+    <div class='div'>
+     <p id="t"></p>
+     <p id="f"></p>
+     <button onclick="tip()">5% Tip</button>
+     <button onclick="tip2()">10% Tip</button>
+     <button onclick="tip3()">15% Tip</button>
+     <button onclick="return()">Finish</button>
+    </div>
+  <script>
+    var t = localStorage.getItem('totally');
+    var price = localStorage.getItem('totalSum');
+    var tax = price * 1.04712;
+    function load() {
+    document.getElementById('t').innerHTML = t;
+    document.getElementById('f').innerHTML = "Total with Tax: $" + grandTaxTotal.toFixed(2);
+    }
+    function tip(){
+      document.getElementById('f').innerHTML = "";
+      var newPrice = grandTaxTotal * 1.05;
+      document.getElementById('f').innerHTML ="With 5%: $" + newPrice.toFixed(2);
+    }
+    function tip2(){
+      document.getElementById('f').innerHTML = "";
+      var newPrice = grandTaxTotal * 1.10;
+      document.getElementById('f').innerHTML ="With 10%: $" + newPrice.toFixed(2);
+    }
+    function tip3(){
+      document.getElementById('f').innerHTML = "";
+      var newPrice = grandTaxTotal * 1.15;
+      document.getElementById('f').innerHTML ="With 15%: $" + newPrice.toFixed(2);
+    }
+    function return(){
+     location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

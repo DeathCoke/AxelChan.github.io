@@ -1,0 +1,28 @@
+{
+    "order": [{
+        "cafe": {
+          "name": "Cafe au Lait",
+          "price": 2.99,
+        },
+        "brewed": {
+          "name": "Brewed Coffee",
+          "price": 1.99,
+        },
+        "cappuccino": {
+          "name": "Cappuccino",
+          "price": 3.65,
+        },
+        "mocha": {
+          "name": "Cafe Mocha Latte",
+          "price": 3.95,
+        },
+        "muffin": {
+          "name": "Muffins and Croissants",
+          "price": 2.99,
+        },
+        "eclair": {
+          "name": "Choclate Eclair",
+          "price": 1.99,
+        }
+    }]
+}
