@@ -1,0 +1,124 @@
+<html>
+  <head>
+    <script src="p5.min.js"></script>
+    <style>
+    text {
+      opacity: .7;
+    }
+      body {
+        margin: 0;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    var ball = new ball();
+    var ball2 = new ball2();
+    var d;
+    var timeX = 15;
+    var timeY = 90;
+    let timer = 20;
+    let bg;
+    var img1;
+    var img2;
+
+      function setup() {
+        createCanvas(w,h);
+        bg = loadImage('background.jpg');
+        img1 = loadImage("circle.jpg");
+        img2 = loadImage("block.jpg");
+        //LOOK UP COLLISION P5
+      }
+      function draw() {
+        background(bg);
+        ball.show();
+        ball.move();
+        ball2.show();
+        ball2.move();
+        ball2.kill();
+        textSize(100);
+        text(timer, timeX, timeY);
+
+        // frameCount --> this keeps track of the number of times the program has gone throught the code, 60 = 1 second
+        // % ---> this is the Modulo operator, it divides numbers and evaluates to the remainder: 17 % 5 evaluates to 2 remainder
+        // this can be used to determine if the number on the left is divisible by the number on the right
+
+        if (frameCount % 60 == 0 && timer > -2) { // if the frameCount is divisible by 60, then a second has passed. it will stop at 0
+         timer --;
+        }
+        if (timer == 0) {
+          text("Game Over", 150, 344);
+          text("Rainbow Block Wins", 720, 344);
+        }
+        if (timer == -2) {
+          text.opacity = 0;
+          location.href = "victory2.html";
+        }
+      }
+
+      function ball() {
+        this.x = 120;
+        this.y = 300;
+        var pH = 80;
+        var pW = 80;
+        this.show = function() {
+          image(img1, this.x, this.y, 100, 100);
+          ellipse(this.x, this.y, pH, pW);
+        }
+
+      this.move = function(){
+          if ((keyIsDown(68)) && (this.x < w - 46)) { //D
+            this.x += 10;
+          }
+          if ((keyIsDown(65)) && (this.x > 40)) { //A
+            this.x -=10;
+          }
+          if ((keyIsDown(87)) && (this.y > 40)) { //W
+            this.y -= 10;
+          }
+          if ((keyIsDown(83)) && (this.y < h - 44)) { //S
+            this.y += 10;
+          }
+      }
+      }
+
+      function ball2() {
+        this.x = 1250;
+        this.y = 300;
+        var pH = 35;
+        var pW = 35;
+        this.show = function() {
+          image(img2, this.x, this.y,100,100);
+          rect(this.x, this.y, pH, pW);
+        }
+
+      this.move = function(){
+          if ((keyIsDown(76)) && (this.x < w - 34)) { //L
+             this.x += 10;
+          }
+          if ((keyIsDown(74)) && (this.x > 30)) { //J
+             this.x -= 10;
+          }
+          if ((keyIsDown(73)) && (this.y > 30)) { //I
+            this.y -= 10;
+          }
+          if ((keyIsDown(75)) && (this.y < h - 34)) { //K
+            this.y += 10;
+          }
+          this.kill = function () {
+            d = dist(this.x, this.y, ball.x, ball.y);
+            if (d < 40) {
+              //make a refresh
+              text("Game Over", 150, 344);
+              text("Disguised Disc Wins", 720, 344);
+            }
+          }
+      }
+    }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <script src="p5.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    var ball = new ball();
+    var timeX = 15;
+    var timeY = 90;
+    let timer = 30;
+    let bg;
+    var img1;
+    var walls;
+    var boxes;
+    var player;
+    var i;
+    function setup() {
+        createCanvas(w,h);
+        //bg = loadImage('background.jpg');
+        //img1 = loadImage("circle.jpg");
+        walls = new Group();
+        boxes = new Group();
+        player = createSprite(100, 100, 40, 40);
+        player.shapeColor = color(255);
+        
+        for (var i = 0; i < 5; i++) {
+        var w = createSprite(
+        random(125, width-125), (height/5)*i,
+        random(10, 100), random(10, 100));
+        w.shapeColor = color(0);
+        walls.add(w);
+      }
+        for (var i = 0; i < 4; i++) {
+        var b = createSprite(
+        random(50, 100), random(100, height-100),
+        25, 25);
+        b.shapeColor = color(255, 0, 0);
+        boxes.add(b);
+      }
+      
+      }
+      
+      function draw() {
+        background(50);
+        textSize(100);
+        text(timer, timeX, timeY);
+        player.velocity.x =
+        (mouseX-player.position.x)*0.1;
+        player.velocity.y =
+        (mouseY-player.position.y)*0.1;
+        player.collide(walls);
+        player.displace(boxes);
+        boxes.collide(walls);
+        boxes.displace(boxes);
+        drawSprites();
+
+        if (frameCount % 60 == 0 && timer > 0) {
+         timer --;
+        }
+        if (timer == 0) {
+          location.href = "victory.html";
+        }
+      
+        if (mouseIsPressed) {
+          player.rotation +=3
+        }
+      
+        }
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <script src="p5.min.js"></script>
+    <style>
+      .blinking{
+    animation:blinkingText 0.8s infinite;
+    font-size: 800%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: co;
+    color: neon;
+}
+@keyframes blinkingText{
+    0%{     color: #000;    }
+    49%{    color: transparent; }
+    50%{    color: transparent; }
+    99%{    color:transparent;  }
+    100%{   color: #000;    }
+}
+    }
+    #b1 {
+      width: 30%;
+      height: 18%;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 250%;
+      text-align: center;
+      font-family: "Comic Sans";
+      transform: translate(100.5%, 160%);
+    }
+    #b2 {
+      width: 32%;
+      height: 18%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      font-size: 250%;
+      transform: translate(0%, 300%);
+      font-family: "Comic Sans";
+
+    }
+      body {
+        background-image:url('mainscreen.jpg');
+        background-size:cover;
+        background-repeat: no-repeat;
+        margin: 0;
+        border: 0;
+      }
+      body {
+        background-image: url('mainscreen.jpg');
+
+        margin: 0;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="blinking">Retro Mania</h1>
+    <button id="b1" onclick="single()">Single Player</button>
+    <button id="b2" onclick="multiplayer()">Multiplayer</button>
+    <script>
+      function single() {
+        location.href = "onePlayer.html"
+      }
+      function multiplayer() {
+        location.href = "twoPlayer.html";
+      }
+    </script>
+  </body>
+</html>

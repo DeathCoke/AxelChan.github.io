@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <script src="p5.min.js"></script>
+    <style>
+    #b1 {
+      width: 32%;
+      height: 18%;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 250%;
+      text-align: center;
+      font-family: "Comic Sans";
+      transform: translate(100.5%, 160%);
+    }
+    #b2 {
+      width: 32%;
+      height: 18%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      font-size: 250%;
+      transform: translate(0%, 300%);
+      font-family: "Comic Sans";
+
+    }
+      body {
+        background-image:url('victory1.jpg');
+        background-size:cover;
+        background-repeat: no-repeat;
+        margin: 0;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="b1" onclick="single()">Play Again</button>
+    <button id="b2" onclick="menu()">Back to Main Menu</button>
+    <script>
+      function single() {
+        location.href = "onePlayer.html"
+      }
+      function menu() {
+        location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>
